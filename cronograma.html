@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programação · Inverno Guarapuava 2026</title>
+<meta name="description" content="A programação completa do Inverno Guarapuava 2026: 70 dias e +100 eventos de gastronomia, cerveja, vinho, cultura e natureza. De 1º de julho a 21 de setembro.">
+<link rel="icon" type="image/png" href="assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="cronograma">
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<section class="subhero">
+  <div class="bg"><img src="assets/img/hero-neve-lago.jpg" alt="Parque do Lago coberto de neve em Guarapuava"></div>
+  <div class="watermark" aria-hidden="true"><span class="ic-mask" style="--m:url('../brand/snowflake-white.svg')"></span></div>
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Início</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg><span>Programação</span></nav>
+    <div class="ic-badge"><span class="ic-mask" style="--m:url('../brand/snowflake-white.svg')"></span></div>
+    <h1 class="reveal">Programação completa</h1>
+    <p class="lead reveal d1">São <b>70 dias</b> e mais de <b>100 eventos</b> integrados pela cidade. Aqui você acompanha tudo — dos grandes destaques aos encontros de bairro.</p>
+  </div>
+</section>
+
+<section class="section bg-paper">
+  <div class="container">
+    <div class="head reveal" style="max-width:860px">
+      <span class="kicker">1 jul → 21 set · 2026</span>
+      <h2 class="section-title mt-s">Filtre por experiência</h2>
+      <p class="lead mt-s">Escolha um tema para encontrar o que combina com você. A agenda é viva e cresce a cada semana.</p>
+    </div>
+
+    <div class="filters reveal">
+      <button class="active" data-cat="all">Tudo</button>
+      <button data-cat="gastronomia">Gastronomia</button>
+      <button data-cat="cerveja">Cerveja</button>
+      <button data-cat="vinho">Vinho</button>
+      <button data-cat="cultura">Cultura</button>
+      <button data-cat="natureza">Natureza</button>
+    </div>
+
+    <div class="events">
+      <article class="event feat reveal" data-cat="cultura">
+        <div class="date"><span class="d">1</span><span class="m">Jul</span><span class="rg">17h30</span></div>
+        <div>
+          <div class="tags"><span class="tag feat-pill">Abertura Oficial</span><span class="tag t-cultura">Cultura</span></div>
+          <h3>Abertura Oficial do Inverno Guarapuava</h3>
+          <p>O grande pontapé da temporada, com vinícolas, cervejarias artesanais, food trucks e artistas locais.</p>
+          <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Praça 9 de Dezembro</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 17h30</span></div>
+        </div>
+        <div class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </article>
+
+      <article class="event reveal d1" data-cat="gastronomia">
+        <div class="date"><span class="d">3</span><span class="m">Jul</span><span class="rg">a 5 jul</span></div>
+        <div>
+          <div class="tags"><span class="tag t-gastro">Gastronomia</span></div>
+          <h3>Sabores de Inverno</h3>
+          <p>A gastronomia típica da estação no centro da festa: pratos quentes, pinhão e os sabores que aquecem o inverno guarapuavano.</p>
+          <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 3 a 5 de julho</span></div>
+        </div>
+        <div class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </article>
+
+      <article class="event reveal d2" data-cat="cerveja">
+        <div class="date"><span class="d">11</span><span class="m">Jul</span><span class="rg">e 12 jul</span></div>
+        <div>
+          <div class="tags"><span class="tag t-cerveja">Cerveja</span></div>
+          <h3>Festival da Cerveja de Inverno</h3>
+          <p>As cervejarias artesanais locais reunidas para celebrar a Capital Nacional da Cevada e do Malte. Estilos premiados, chopp gelado e muita música.</p>
+          <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 11 e 12 de julho</span></div>
+        </div>
+        <div class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </article>
+
+      <article class="event reveal" data-cat="vinho gastronomia">
+        <div class="date"><span class="d">❉</span><span class="m">Julho</span></div>
+        <div>
+          <div class="tags"><span class="tag t-vinho">Vinho</span><span class="tag">Em breve</span></div>
+          <h3>Rota do Vinho · Degustações de Inverno</h3>
+          <p>Encontros com as vinícolas da região — taças, histórias e brindes ao redor do fogo. Agenda de datas em breve.</p>
+          <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Datas a confirmar</span></div>
+        </div>
+        <div class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </article>
+
+      <article class="event reveal d1" data-cat="cultura natureza">
+        <div class="date"><span class="d">❀</span><span class="m">Em breve</span></div>
+        <div>
+          <div class="tags"><span class="tag t-cultura">Cultura</span><span class="tag t-natureza">Natureza</span></div>
+          <h3>Festival das Cerejeiras</h3>
+          <p>O espetáculo das flores que pinta a cidade de rosa e anuncia a virada da estação. Data a confirmar.</p>
+          <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Parques da cidade</span></div>
+        </div>
+        <div class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </article>
+
+      <article class="event reveal d2" data-cat="cultura">
+        <div class="date"><span class="d">~</span><span class="m">Jul–Set</span></div>
+        <div>
+          <div class="tags"><span class="tag t-cultura">Cidade temática</span></div>
+          <h3>Uma cidade transformada</h3>
+          <p>Durante toda a temporada, ruas, praças e espaços públicos ganham decoração temática e iluminação especial de inverno.</p>
+          <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Centro &amp; bairros</span></div>
+        </div>
+        <div class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </article>
+
+      <article class="event reveal d3" data-cat="cultura">
+        <div class="date"><span class="d">21</span><span class="m">Set</span></div>
+        <div>
+          <div class="tags"><span class="tag t-cultura">Encerramento</span></div>
+          <h3>Encerramento da temporada</h3>
+          <p>O grande até-logo de 70 dias inesquecíveis. Programação especial de encerramento — em breve.</p>
+          <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 21 de setembro</span></div>
+        </div>
+        <div class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </article>
+    </div>
+
+    <div class="crono-actions reveal">
+      <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> A programação é atualizada constantemente e está sujeita a alterações.</span>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-paper">
+  <div class="container">
+    <div class="cta reveal">
+      <span class="kicker" style="justify-content:center;color:var(--gold-bright)">Não perca nada</span>
+      <h2 class="section-title mt-s">Receba cada novidade em primeira mão</h2>
+      <p class="lead">A agenda completa vai sendo revelada ao longo das semanas. Acompanhe os perfis oficiais e fique por dentro de cada atração.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="https://www.instagram.com/turismo_guarapuava/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:1.2em;height:1.2em"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg> @turismo_guarapuava</a>
+        <a class="btn btn-outline btn-lg" href="index.html#experiencias">Ver experiências</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
