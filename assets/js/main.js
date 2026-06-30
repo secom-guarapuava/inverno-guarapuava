@@ -83,7 +83,7 @@
       '<footer class="footer"><div class="container">' +
       '<div class="footer-grid">' +
       '<div class="footer-brand"><img class="lockup" src="assets/brand/lockup-white.svg" alt="Inverno Guarapuava">' +
-      '<p>O inverno mais especial da história de Guarapuava. 70 dias de gastronomia, cultura, natureza e os sabores da Capital Nacional da Cevada e do Malte.</p>' +
+      '<p>O inverno mais especial da história de Guarapuava. 82 dias de gastronomia, cultura, natureza e os sabores da Capital Nacional da Cevada e do Malte.</p>' +
       '<div class="footer-social">' +
       '<a href="' + IG_TUR + '" target="_blank" rel="noopener" aria-label="Instagram do Turismo">' + ICON.ig + '</a>' +
       '<a href="' + IG_PREF + '" target="_blank" rel="noopener" aria-label="Instagram da Prefeitura">' + ICON.ig + '</a>' +
@@ -277,6 +277,11 @@
           document.querySelectorAll('.events .event').forEach(function (c) {
             var show = cat === 'all' || (c.dataset.cat || '').split(' ').indexOf(cat) > -1;
             c.style.display = show ? '' : 'none';
+          });
+          // esconde meses sem eventos visíveis
+          document.querySelectorAll('.crono-month').forEach(function (m) {
+            var vis = Array.prototype.slice.call(m.querySelectorAll('.event')).some(function (c) { return c.style.display !== 'none'; });
+            m.style.display = vis ? '' : 'none';
           });
         });
       });

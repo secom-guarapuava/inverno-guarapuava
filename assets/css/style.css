@@ -230,7 +230,7 @@ h3{font-size:clamp(1.2rem,1.9vw,1.5rem);font-weight:450}
 @keyframes kenburns{from{transform:scale(1.06)}to{transform:scale(1.14)}}
 /* gradientes cinematográficos: vinheta + peso na base */
 .hero::before{content:"";position:absolute;inset:0;z-index:-2;
-  background:linear-gradient(180deg,rgba(4,7,15,.62) 0%,rgba(4,7,15,.12) 26%,rgba(4,7,15,.05) 48%,rgba(4,7,15,.62) 74%,rgba(4,7,15,.96) 100%)}
+  background:linear-gradient(90deg,rgba(4,7,15,.74) 0%,rgba(4,7,15,.36) 30%,rgba(4,7,15,.05) 60%,transparent 76%),linear-gradient(180deg,rgba(4,7,15,.55) 0%,rgba(4,7,15,.10) 24%,rgba(4,7,15,.06) 42%,rgba(4,7,15,.52) 60%,rgba(4,7,15,.87) 82%,rgba(4,7,15,.97) 100%)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
   background:radial-gradient(ellipse 130% 90% at 50% 110%,transparent 50%,rgba(4,7,15,.42) 100%)}
 .hero .container{position:relative;z-index:2;padding-bottom:clamp(90px,12vh,150px)}
@@ -238,15 +238,15 @@ h3{font-size:clamp(1.2rem,1.9vw,1.5rem);font-weight:450}
 .hero-content .lockup{height:clamp(60px,6.5vw,84px);width:auto;margin-bottom:30px;
   filter:drop-shadow(0 6px 24px rgba(0,0,0,.5))}
 .hero-dates{display:inline-flex;align-items:center;gap:14px;color:var(--gold-bright);
-  font-size:.76rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;margin-bottom:26px}
+  font-size:.76rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;margin-bottom:26px;text-shadow:0 1px 10px rgba(0,0,0,.75)}
 .hero-dates::before{content:"";width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
 .hero-dates .dot{width:5px;height:5px;border-radius:50%;background:var(--gold-bright);
   box-shadow:0 0 0 0 rgba(233,190,118,.7);animation:pulse 2.6s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(233,190,118,.55)}70%{box-shadow:0 0 0 12px rgba(233,190,118,0)}100%{box-shadow:0 0 0 0 transparent}}
 .hero h1{font-size:clamp(2.7rem,6.4vw,5.6rem);margin-bottom:24px;color:#fff;
-  text-shadow:0 4px 40px rgba(0,0,0,.45);line-height:1.02;font-weight:380}
-.hero .lead{margin-bottom:38px;max-width:600px;color:rgba(234,242,251,.86);
-  text-shadow:0 2px 18px rgba(0,0,0,.5)}
+  text-shadow:0 1px 2px rgba(0,0,0,.6),0 3px 16px rgba(0,0,0,.6),0 8px 48px rgba(0,0,0,.45);line-height:1.02;font-weight:380}
+.hero .lead{margin-bottom:38px;max-width:600px;color:rgba(234,242,251,.95);
+  text-shadow:0 1px 2px rgba(0,0,0,.65),0 2px 16px rgba(0,0,0,.6)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
 .hero-stats{position:absolute;right:var(--gutter);bottom:clamp(90px,12vh,150px);z-index:2;display:flex;gap:34px;
   text-align:right;flex-direction:column;align-items:flex-end}
@@ -373,6 +373,29 @@ h3{font-size:clamp(1.2rem,1.9vw,1.5rem);font-weight:450}
   border-color:transparent;box-shadow:var(--sh-gold)}
 .hidden-event{display:none}
 .events.expanded .hidden-event{display:grid;animation:fadeUp .6s var(--ease) both}
+/* categorias extra */
+.tag.t-musica{background:rgba(143,195,255,.09);color:var(--frost);border-color:rgba(143,195,255,.3)}
+.tag.t-esporte{background:rgba(127,203,164,.1);color:var(--pine);border-color:rgba(127,203,164,.3)}
+.tag.t-festa{background:rgba(233,190,118,.12);color:var(--gold-bright);border-color:var(--line-gold)}
+.tag.t-feira{background:var(--glass-2);color:var(--ice-soft);border-color:var(--line-strong)}
+.tag.t-infantil{background:rgba(227,160,188,.1);color:var(--rose);border-color:rgba(227,160,188,.28)}
+.tag.t-pago{background:rgba(232,130,90,.1);color:var(--ember);border-color:rgba(232,130,90,.3)}
+.tag.t-gratis{background:rgba(127,203,164,.12);color:var(--pine);border-color:rgba(127,203,164,.3)}
+/* separador de mês */
+.crono-month{display:grid;gap:14px}
+.crono-month + .crono-month{margin-top:34px}
+.month-sep{display:flex;align-items:center;gap:18px;margin:8px 0 2px;font-family:var(--font-display);
+  font-weight:400;font-size:clamp(1.4rem,2.4vw,1.9rem);color:var(--ice);letter-spacing:.01em}
+.month-sep .n{font-size:.66rem;font-family:var(--font-body);letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);font-weight:500}
+.month-sep::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line-gold),transparent)}
+/* lista de festas julinas agrupadas */
+.fj-list{display:grid;gap:7px;margin-top:12px}
+.fj-list li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-size:.9rem;
+  color:var(--ice-soft);border-bottom:1px dashed var(--line);padding-bottom:6px}
+.fj-list li b{font-weight:500;color:var(--ice)}
+.fj-list li .pl{color:var(--ice-dim);font-size:.78rem;text-align:right;white-space:nowrap}
+@media (max-width:560px){.fj-list li{flex-direction:column;gap:2px}.fj-list li .pl{text-align:left}}
 
 /* ---------- Routes ---------- */
 .routes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,20px)}
