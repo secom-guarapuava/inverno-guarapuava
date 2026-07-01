@@ -68,7 +68,7 @@ COMO-EDITAR.md · FOTOS.md
 
 **Números da cerveja:** +100 estilos · +150 medalhas (BR e exterior) · 9 cervejarias artesanais · 1 em cada 3 cervejas do Brasil saem daqui.
 
-**Temas cobertos:** gastronomia (carnes nobres, pinhão, queijarias premiadas), rota da cerveja, vinhos de altitude (Campos Gerais), turismo rural (araucárias, geada, **Salto São Francisco – 193 m**), cultura & **Entre Rios** (colonização suábia/alemã, tropeiros, imigrações).
+**Temas cobertos:** gastronomia (carnes nobres, pinhão, queijarias premiadas), rota da cerveja, vinhos de altitude (Campos Gerais), turismo rural (araucárias, geada, **Salto São Francisco – 196 m**), cultura & **Entre Rios** (colonização suábia/alemã, tropeiros, imigrações).
 
 **Contatos:** tel. (42) 3142-1486 · Instagram @turismo_guarapuava e @guarapuava_pref · Secretaria Municipal de Turismo e Eventos.
 
