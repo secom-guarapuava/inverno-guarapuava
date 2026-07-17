@@ -394,7 +394,7 @@ h3{font-size:clamp(1.2rem,1.9vw,1.5rem);font-weight:450}
 .fj-list li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-size:.9rem;
   color:var(--ice-soft);border-bottom:1px dashed var(--line);padding-bottom:6px}
 .fj-list li b{font-weight:500;color:var(--ice)}
-.fj-list li .pl{color:var(--ice-dim);font-size:.78rem;text-align:right;white-space:nowrap}
+.fj-list li .pl{color:var(--ice-dim);font-size:.78rem;text-align:right;max-width:56%;line-height:1.4}
 @media (max-width:560px){.fj-list li{flex-direction:column;gap:2px}.fj-list li .pl{text-align:left}}
 
 /* ---------- Routes ---------- */

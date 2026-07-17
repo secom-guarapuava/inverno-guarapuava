@@ -34,6 +34,21 @@
       <p class="lead mt-s">Escolha um tema para encontrar o que combina com você. A agenda é viva e cresce a cada semana.</p>
     </div>
 
+    <style>
+      .time-tabs{display:inline-flex;gap:5px;margin-bottom:22px;padding:5px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--glass)}
+      .time-tabs button{font-family:var(--font-body);font-weight:500;font-size:.82rem;letter-spacing:.02em;padding:.62em 1.5em;border-radius:var(--r-pill);color:var(--ice-dim);transition:.3s var(--ease);display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+      .time-tabs button:hover{color:var(--ice)}
+      .time-tabs button.active{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--gold-ink);box-shadow:var(--sh-gold)}
+      .time-tabs button .cnt{font-size:.74rem;opacity:.7;font-weight:600}
+      .crono-empty{display:none;text-align:center;color:var(--ice-dim);padding:48px 0 8px;font-size:1.02rem}
+      @media (max-width:560px){.time-tabs{display:flex;width:100%}.time-tabs button{flex:1;justify-content:center;padding:.7em .6em}}
+    </style>
+
+    <div class="time-tabs" role="tablist" aria-label="Filtrar por período">
+      <button class="active" data-when="upcoming">A acontecer <span class="cnt"></span></button>
+      <button data-when="past">Já aconteceram <span class="cnt"></span></button>
+    </div>
+
     <div class="filters reveal">
       <button class="active" data-cat="all">Tudo</button>
       <button data-cat="gastronomia">Gastronomia</button>
@@ -799,6 +814,8 @@
 
     </div>
 
+    <p class="crono-empty" id="cronoEmpty">Nenhum evento nesta seção no momento.</p>
+
     <div class="crono-actions reveal">
       <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> A programação é atualizada constantemente e está sujeita a alterações.</span>
     </div>
@@ -821,5 +838,61 @@
 </section>
 
 <script src="assets/js/main.js"></script>
+<script>
+/* Separação passado / futuro + filtros de categoria (self-contained) */
+(function(){
+  var MON={jun:5,jul:6,ago:7,set:8};
+  var today=new Date(); today.setHours(0,0,0,0);
+  function endDate(ev){
+    var d=ev.querySelector('.date .d'), m=ev.querySelector('.date .m'), r=ev.querySelector('.date .rg');
+    if(!d||!m) return null;
+    var day=parseInt(d.textContent,10);
+    var mon=MON[m.textContent.trim().toLowerCase().slice(0,3)];
+    if(mon==null||isNaN(day)) return null;
+    var eDay=day, eMon=mon, rg=(r?r.textContent:'').toLowerCase();
+    var mm=rg.match(/(?:a|e|até)\s+(\d{1,2})\s*(jun|jul|ago|set)?/);
+    if(mm){ eDay=parseInt(mm[1],10); if(mm[2]&&MON[mm[2]]!=null) eMon=MON[mm[2]]; }
+    return new Date(2026,eMon,eDay,23,59,59);
+  }
+  var events=[].slice.call(document.querySelectorAll('.events .event'));
+  if(!events.length) return;
+  var months=[].slice.call(document.querySelectorAll('.crono-month'));
+  document.querySelectorAll('.events .reveal').forEach(function(e){e.classList.add('in');});
+  events.forEach(function(ev){ var dt=endDate(ev); ev._past = dt ? (dt<today) : false; });
+  var empty=document.getElementById('cronoEmpty');
+  var state={when:'upcoming',cat:'all'};
+  function apply(){
+    events.forEach(function(ev){
+      var okW = state.when==='past' ? ev._past : !ev._past;
+      var okC = state.cat==='all' || (ev.getAttribute('data-cat')||'').split(' ').indexOf(state.cat)>-1;
+      ev.style.display=(okW&&okC)?'':'none';
+    });
+    months.forEach(function(mo){
+      var vis=[].slice.call(mo.querySelectorAll('.event')).some(function(c){return c.style.display!=='none';});
+      mo.style.display=vis?'':'none';
+    });
+    if(empty){ var any=events.some(function(e){return e.style.display!=='none';}); empty.style.display=any?'none':'block'; }
+  }
+  var tabs=[].slice.call(document.querySelectorAll('.time-tabs button'));
+  var up=events.filter(function(e){return !e._past;}).length, pa=events.length-up;
+  tabs.forEach(function(t){
+    var c=t.querySelector('.cnt'); if(c) c.textContent=(t.getAttribute('data-when')==='past'?pa:up);
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active'); state.when=t.getAttribute('data-when'); apply();
+    });
+  });
+  /* assume o controle dos filtros de categoria (remove handlers antigos via clone) */
+  [].slice.call(document.querySelectorAll('.filters button')).forEach(function(b){ b.parentNode.replaceChild(b.cloneNode(true), b); });
+  var filters=[].slice.call(document.querySelectorAll('.filters button'));
+  filters.forEach(function(b){
+    b.addEventListener('click',function(){
+      filters.forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active'); state.cat=b.getAttribute('data-cat')||'all'; apply();
+    });
+  });
+  apply();
+})();
+</script>
 </body>
 </html>
