@@ -41,6 +41,9 @@
       .time-tabs button.active{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--gold-ink);box-shadow:var(--sh-gold)}
       .time-tabs button .cnt{font-size:.74rem;opacity:.7;font-weight:600}
       .crono-empty{display:none;text-align:center;color:var(--ice-dim);padding:48px 0 8px;font-size:1.02rem}
+      .tag.t-live{background:rgba(127,203,164,.16);color:var(--pine);border-color:rgba(127,203,164,.5)}
+      .tag.t-live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pine);display:inline-block;margin-right:7px;vertical-align:middle;box-shadow:0 0 0 0 rgba(127,203,164,.6);animation:livePulse 2s infinite}
+      @keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(127,203,164,.5)}70%{box-shadow:0 0 0 7px rgba(127,203,164,0)}100%{box-shadow:0 0 0 0 transparent}}
       @media (max-width:560px){.time-tabs{display:flex;width:100%}.time-tabs button{flex:1;justify-content:center;padding:.7em .6em}}
     </style>
 
@@ -843,22 +846,32 @@
 (function(){
   var MON={jun:5,jul:6,ago:7,set:8};
   var today=new Date(); today.setHours(0,0,0,0);
-  function endDate(ev){
+  function bounds(ev){
     var d=ev.querySelector('.date .d'), m=ev.querySelector('.date .m'), r=ev.querySelector('.date .rg');
     if(!d||!m) return null;
-    var day=parseInt(d.textContent,10);
-    var mon=MON[m.textContent.trim().toLowerCase().slice(0,3)];
+    var day=parseInt(d.textContent,10), mon=MON[m.textContent.trim().toLowerCase().slice(0,3)];
     if(mon==null||isNaN(day)) return null;
-    var eDay=day, eMon=mon, rg=(r?r.textContent:'').toLowerCase();
+    var start=new Date(2026,mon,day), eDay=day, eMon=mon, rg=(r?r.textContent:'').toLowerCase();
     var mm=rg.match(/(?:a|e|até)\s+(\d{1,2})\s*(jun|jul|ago|set)?/);
     if(mm){ eDay=parseInt(mm[1],10); if(mm[2]&&MON[mm[2]]!=null) eMon=MON[mm[2]]; }
-    return new Date(2026,eMon,eDay,23,59,59);
+    return {start:start, end:new Date(2026,eMon,eDay)}; // início e fim (fim = evento em cartaz continua em "A acontecer")
   }
   var events=[].slice.call(document.querySelectorAll('.events .event'));
   if(!events.length) return;
   var months=[].slice.call(document.querySelectorAll('.crono-month'));
   document.querySelectorAll('.events .reveal').forEach(function(e){e.classList.add('in');});
-  events.forEach(function(ev){ var dt=endDate(ev); ev._past = dt ? (dt<today) : false; });
+  events.forEach(function(ev){
+    var b=bounds(ev);
+    ev._past = b ? (b.end < today) : false;
+    ev._ongoing = b ? (b.start < today && b.end >= today) : false;
+    if(ev._ongoing){
+      var tg=ev.querySelector('.tags');
+      if(tg && !tg.querySelector('.t-live')){
+        var s=document.createElement('span'); s.className='tag t-live'; s.textContent='Em andamento';
+        tg.insertBefore(s, tg.firstChild);
+      }
+    }
+  });
   var empty=document.getElementById('cronoEmpty');
   var state={when:'upcoming',cat:'all'};
   function apply(){
