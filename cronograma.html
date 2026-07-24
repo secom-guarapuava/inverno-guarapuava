@@ -45,6 +45,13 @@
       .tag.t-live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pine);display:inline-block;margin-right:7px;vertical-align:middle;box-shadow:0 0 0 0 rgba(127,203,164,.6);animation:livePulse 2s infinite}
       @keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(127,203,164,.5)}70%{box-shadow:0 0 0 7px rgba(127,203,164,0)}100%{box-shadow:0 0 0 0 transparent}}
       @media (max-width:560px){.time-tabs{display:flex;width:100%}.time-tabs button{flex:1;justify-content:center;padding:.7em .6em}}
+      .circuito-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:14px;margin-top:6px}
+      .circ-card{background:var(--glass);border:1px solid var(--line);border-radius:var(--r-md);padding:18px 20px;transition:.35s var(--ease)}
+      .circ-card:hover{border-color:var(--line-gold);background:var(--glass-2);transform:translateY(-3px)}
+      .circ-card h4{font-family:var(--font-display);font-weight:450;font-size:1.1rem;color:var(--ice);margin-bottom:11px}
+      .circ-card .info{display:flex;flex-direction:column;gap:7px;font-size:.8rem;color:var(--ice-dim);line-height:1.4}
+      .circ-card .info span{display:flex;gap:8px;align-items:flex-start}
+      .circ-card .info svg{width:14px;height:14px;color:var(--gold);flex:none;margin-top:2px}
     </style>
 
     <div class="time-tabs" role="tablist" aria-label="Filtrar por período">
@@ -618,17 +625,6 @@
           <div class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </article>
 
-        <article class="event reveal" data-cat="gastronomia">
-          <div class="date"><span class="d">8</span><span class="m">Ago</span><span class="rg">e 9 ago</span></div>
-          <div>
-            <div class="tags"><span class="tag t-gastro">Gastronomia</span><span class="tag t-vinho">Vinho</span></div>
-            <h3>Vinopar</h3>
-            <p>Festival de vinhos, nos dias 8 e 9 de agosto.</p>
-            <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Centro de Eventos Cidade dos Lagos</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 08h às 18h</span></div>
-          </div>
-          <div class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        </article>
-
         <article class="event reveal" data-cat="gastronomia cultura">
           <div class="date"><span class="d">8</span><span class="m">Ago</span><span class="rg">19h</span></div>
           <div>
@@ -824,6 +820,32 @@
     </div>
   </div>
 </section>
+
+<section class="section bg-cream" id="circuito">
+  <div class="container">
+    <div class="head reveal" style="max-width:880px">
+      <span class="kicker">Abrasel · até 31 de agosto</span>
+      <h2 class="section-title mt-s">Circuito Gastronômico</h2>
+      <p class="lead mt-s">Parte da programação do Inverno Guarapuava, realizado pela Abrasel Centro-Sul: um roteiro por 13 estabelecimentos da cidade — restaurantes, hamburguerias, pizzarias e cervejarias — até 31 de agosto. No primeiro estabelecimento você recebe um encarte para carimbar a cada visita; quem passar por pelo menos 7 dos 13 participantes recebe um voucher para retornar e conhecer os demais.</p>
+    </div>
+    <div class="circuito-grid">
+      <article class="circ-card reveal"><h4>Zero42 Santa Cruz</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Professor Becker, 3329 — Santa Cruz</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Seg a dom, 18h às 23h30</span></div></article>
+      <article class="circ-card reveal"><h4>Pizzana</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Vicente Machado, 1280 — Centro</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Qui a sáb, 19h às 23h30</span></div></article>
+      <article class="circ-card reveal"><h4>Dom Henrique Gastronomia</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Vicente Machado, 1367 — Centro</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Seg a sáb, 17h às 23h</span></div></article>
+      <article class="circ-card reveal"><h4>Max Pizza</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Saldanha Marinho, 419 — Trianon</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Seg a qui, 19h às 22h</span></div></article>
+      <article class="circ-card reveal"><h4>Irmandade</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Leonardo Valente, 304 — Primavera</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Ter a sáb, 18h às 23h30</span></div></article>
+      <article class="circ-card reveal"><h4>Mr. Smash</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Brigadeiro Rocha, 3179 — Centro</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Seg a sáb, 18h às 23h30</span></div></article>
+      <article class="circ-card reveal"><h4>Play in Burguer</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Saldanha Marinho, 2353 — Centro</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Ter a dom, 18h às 23h</span></div></article>
+      <article class="circ-card reveal"><h4>Brava Restaurante</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Av. Senador Nereu Ramos, 1908</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Ter a sáb, 18h30 às 22h30</span></div></article>
+      <article class="circ-card reveal"><h4>Roots</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Padre Chagas, 2837 — Centro</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Qua a dom, horários variados</span></div></article>
+      <article class="circ-card reveal"><h4>Suábia</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Eslavônia, 331 — Colônia Jordãozinho</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Qua a sex, 17h às 0h</span></div></article>
+      <article class="circ-card reveal"><h4>Prensadão do Lucão</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Barão do Rio Branco, 257 — Centro</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Seg a sáb, 17h às 23h30</span></div></article>
+      <article class="circ-card reveal"><h4>Rocca</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Arlindo Ribeiro, 1130 — Centro</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Seg a sáb, 17h às 21h</span></div></article>
+      <article class="circ-card reveal"><h4>Big Knife</h4><div class="info"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> R. Getúlio Vargas, 1096 — Centro</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Seg a dom, 19h às 23h</span></div></article>
+    </div>
+  </div>
+</section>
+<script>(function(){var s=document.getElementById('circuito');if(s&&new Date()>=new Date(2026,8,1))s.style.display='none';})();</script>
 
 <section class="section bg-paper">
   <div class="container">
